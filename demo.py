@@ -2,7 +2,7 @@
 
 import socket
 
-from sensor901 import DataParser
+from sensor901 import StreamParser
 
 
 def test():
@@ -14,7 +14,7 @@ def test():
     fps_counter = 0
     start_time = time.time()  # Record the starting time for FPS calculation
 
-    def updateData(parser: DataParser, data: bytes):
+    def updateData(parser: StreamParser, data: bytes):
         nonlocal cnt, fps_counter, start_time
 
         frames = parser.parse(data)
@@ -44,7 +44,7 @@ def test():
             cnt += 1
 
     # Simulate test environment
-    parser = DataParser()
+    parser = StreamParser()
 
     # listen on UDP port 1399
     try:
