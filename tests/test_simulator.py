@@ -9,7 +9,7 @@ from sensor901 import Frame, StreamParser
 from sensor901.simulator import Simulator
 
 
-class TestFrame(unittest.TestCase):
+class TestSimulator(unittest.TestCase):
 
     def test_simulator(self):
         cnt = 0

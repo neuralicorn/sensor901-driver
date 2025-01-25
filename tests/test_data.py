@@ -4,7 +4,7 @@ from pathlib import Path
 from sensor901.data import Frame
 
 
-class TestFrame(unittest.TestCase):
+class TestData(unittest.TestCase):
 
     def test_serialize_deserialize_loopback(self):
         frame = Frame(device_name="Device001",

@@ -5,7 +5,7 @@ from sensor901.data import Frame
 from sensor901.parser import StreamParser
 
 
-class TestFrame(unittest.TestCase):
+class TestStreamer(unittest.TestCase):
 
     def test_deserialize(self):
         frame_data = Frame(device_name="Device001",
