@@ -2,7 +2,7 @@ import math
 import socket
 import threading
 import time
-from typing import Callable
+from typing import Callable, Optional
 
 from .data import Frame
 
@@ -14,9 +14,9 @@ class Simulator:
         self.running = False
 
         self.interval = 0.1
-        self.sine_postprocess: Callable[[float], float] | None = None
+        self.sine_postprocess: Optional[Callable[[float], float]] = None
 
-        self.thread: threading.Thread | None = None
+        self.thread: Optional[threading.Thread] = None
 
     def generate_frame(self, timestamp: str, index: int) -> Frame:
         # Simulate sine wave for sensor data
