@@ -8,7 +8,7 @@ readme = "README.md"
 packages = [{ include = "sensor901" }]
 
 [tool.poetry.group.dev.dependencies]
-coverage = "^7.6.10"
+coverage = {extras = ["toml"], version = "^7.6.11"}
 loguru = "^0.7.3"
 
 [build-system]
