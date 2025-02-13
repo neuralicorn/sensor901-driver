@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sensor901"
-version = "0.0.3"
+version = "0.0.4"
 description = ""
 authors = ["Sheng Fan <fredtools999@gmail.com>"]
 license = "unlicense"

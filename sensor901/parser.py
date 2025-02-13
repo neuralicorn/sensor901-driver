@@ -28,7 +28,6 @@ class StreamParser:
             # Extract one frame (54 bytes)
             frame = self.buffer[:54]
             frame_bytes = bytes(frame)
-            print(f"{frame_bytes=}")
             frames.append(Frame.parse(frame_bytes))
 
             # Remove the frame from the buffer
