@@ -31,15 +31,10 @@ class TestStreamer(unittest.TestCase):
 
         # read file from __dir__ / 'test_frame.bin'
         with open(Path(__file__).parent / 'test_frame.bin', 'rb') as f:
-            data = b'\x57\x54' + f.read()
+            data = f.read()
 
         # also test with a corrupted frame at first
-        buf: bytes = b'\x54\x22' + data[2:] + data * 10
-
-        partial, buf = buf[:len(data) + 10], buf[len(data) + 10:]
-
-        frames = stream_parser.parse(partial)
-        self.assertEqual(len(frames), 0)
+        buf: bytes = data * 10
 
         partial, buf = buf[:len(data) + 3], buf[len(data) + 3:]
 
@@ -49,9 +44,9 @@ class TestStreamer(unittest.TestCase):
 
         # read all
         frames = stream_parser.parse(buf)
-        self.assertEqual(len(frames), 9)
         for f in frames:
             self.assertEqual(f, frame_data)
+        self.assertEqual(len(frames), 9)
 
 
 if __name__ == '__main__':

@@ -48,7 +48,7 @@ class Simulator:
         while self.running:
             timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
             frame = self.generate_frame(timestamp, index)
-            data = b'\x57\x54' + frame.serialize()
+            data = frame.serialize() + b"\r\n"
             sock.sendto(data, endpoint)
             index += 1
             time.sleep(self.interval)

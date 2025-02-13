@@ -35,12 +35,12 @@ def test():
                 start_time = time.perf_counter_ns()
 
             if cnt % 10 == 0:
-                offset = frame.angle_x + 90
-                offset = min(max(offset, 0), 180)
-                print(f"{frame.acc_z:.2f}".rjust(8),
-                      ' ' * round(offset // 2) + '|',
-                      flush=True)
-                # print(frame.angle_x)
+                # offset = frame.angle_x + 90
+                # offset = min(max(offset, 0), 180)
+                # print(f"{frame.acc_z:.2f}".rjust(8),
+                #       ' ' * round(offset // 2) + '|',
+                #       flush=True)
+                print(frame)
             cnt += 1
 
     # Simulate test environment

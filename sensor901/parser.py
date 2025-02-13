@@ -24,12 +24,12 @@ class StreamParser:
         self.buffer += data
 
         # Process buffer to extract complete frames
-        while len(self.buffer
-                  ) >= 54:  # Check if buffer has enough data for a frame
-            if self.buffer[0:2] == b'\x57\x54':  # Check frame header
-                # Extract one frame (54 bytes)
-                frame = self.buffer[:54]
-                frames.append(Frame.parse(bytes(frame)[2:]))
+        while len(self.buffer) >= 54:
+            # Extract one frame (54 bytes)
+            frame = self.buffer[:54]
+            frame_bytes = bytes(frame)
+            print(f"{frame_bytes=}")
+            frames.append(Frame.parse(frame_bytes))
 
             # Remove the frame from the buffer
             self.buffer = self.buffer[54:]
